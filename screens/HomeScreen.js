@@ -1,6 +1,6 @@
 import { useNavigation } from "@react-navigation/native";
 import { useLayoutEffect } from "react";
-import { View, Text, Image, TextInput } from "react-native";
+import { View, Text, Image, TextInput, ScrollView } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import {
   AdjustmentsVerticalIcon,
@@ -8,6 +8,8 @@ import {
   MagnifyingGlassIcon,
 } from "react-native-heroicons/solid";
 import { UserIcon } from "react-native-heroicons/outline";
+import Categories from "../components/Categories";
+
 const HomeScreen = () => {
   const navigation = useNavigation();
 
@@ -51,6 +53,18 @@ const HomeScreen = () => {
         </View>
         <AdjustmentsVerticalIcon color="#00BBCC" />
       </View>
+
+      {/* Body */}
+      <ScrollView
+        className="bg-gray-100"
+        contentContainerStyle={{ paddingBottom: 100 }}
+      >
+        {/* Categories */}
+        <Text>
+          <Categories />
+        </Text>
+        {/* Featured Rows */}
+      </ScrollView>
     </SafeAreaView>
   );
 };
