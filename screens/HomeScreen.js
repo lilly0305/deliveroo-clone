@@ -10,14 +10,28 @@ import {
 import { UserIcon } from "react-native-heroicons/outline";
 import Categories from "../components/Categories";
 import FeaturedRow from "../components/FeaturedRow";
+import sanityClient from "../sanity";
 
 const HomeScreen = () => {
   const navigation = useNavigation();
+
+  const [featuredCategories, setFeaturedCategories] = useState([]);
 
   useLayoutEffect(() => {
     navigation.setOptions({
       headerShown: false,
     });
+  }, []);
+
+  useEffect(() => {
+    sanityClient.fetch(`
+    *[_type == "featured] {
+      ...,
+      restaurants[] => {
+        ...,
+        dishes[]->
+      }
+    }`);
   }, []);
 
   return (
