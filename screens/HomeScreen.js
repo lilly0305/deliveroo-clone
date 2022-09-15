@@ -60,9 +60,7 @@ const HomeScreen = () => {
         contentContainerStyle={{ paddingBottom: 100 }}
       >
         {/* Categories */}
-        <Text>
-          <Categories />
-        </Text>
+        <Categories />
         {/* Featured Rows */}
       </ScrollView>
     </SafeAreaView>
